@@ -1,0 +1,38 @@
+<% if(success && success.length) {%>
+	<div class="alert alert-success alert-dismissible fade show myAlert" role="alert">
+		<%= success %>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+<% } %>
+
+<% if(error && error.length) {%>
+	<div class="alert alert-danger alert-dismissible fade show myAlert" role="alert">
+		<%= error %>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+<% } %>
+
+
+<style>
+	@keyframes fadeOut {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+	}
+
+	.myAlert {
+  		animation-name: fadeOut; 
+		animation-duration: 5s;
+	}
+</style>
+
+
+<script>
+	const myAlert = document.querySelector(".myAlert");
+
+	if(myAlert) {
+		window.setTimeout(function () {
+			myAlert.style.display = "none";
+		}, 5000);
+	}
+</script>
